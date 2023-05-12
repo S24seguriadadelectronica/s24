@@ -1,134 +1,170 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Mostrar imágenes desde Google Sheets</title>
-        <style>
-            .image-box .price {
-  font-weight: bold;
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  background-color: orange;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
+  <head>
+
+ <a href="https://www.ejemplo.com" target="_blank" class="fixed-button">
+  <img src="https://drive.google.com/uc?id=1PfXXGh2cIKzTZD6nmzgjPfl5yBFkdzrX" alt="Texto alternativo de la imagen" width="100" height="100">
+</a>
+
+
+    <title>Reproducir video</title>
+    <style>
+
+       /* Estilos para el formulario */
+       form {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Estilos para los campos de entrada */
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 16px;
+        resize: none;
+      }
+
+      /* Estilos para el botón de enviar */
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      /* Estilos para los campos de entrada con error */
+      input[type="text"].error,
+      input[type="email"].error,
+      textarea.error {
+        border-color: red;
+      }
+
+      /* Estilos para el mensaje de error */
+      .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+      
+  .fixed-button {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
 }
 
-            .image-box .description {
-  font-size: 0.9em;
-  line-height: 1.2;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      h1 {
+  margin-top: -20px;
+  font-family: Arial, sans-serif; /* Tipo de letra y la lista de fuentes alternativas */
+  color: #0000FF; /* Código hexadecimal de color */
+  font-style: italic; /* Aplicar cursiva */
+  font-weight: bold; /* Aplicar negrita */
+  font-size: 40px; /* Tamaño de letra en píxeles */
 }
-            .image-box {
-  border: 1px solid #e60000;
-  padding: 10px;
-  margin-bottom: 20px;
-  width: 300px;
-  display: inline-block;
-  vertical-align: top;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-}
-          /* Agrega estas líneas para cambiar la fuente y el tamaño de letra */
-          body {
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 16px;
-            line-height: 1.4;
-          }
-          /* Agrega el resto del CSS aquí */
-          .image-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-            width: 300px;
-            display: inline-block;
-            vertical-align: top;
-          }
-          .image-box img {
-            width: 100%;
-            margin-bottom: 10px;
-          }
-          .image-box .price {
-            font-weight: bold;
-            font-size: 1.6em; /* Cambia el tamaño de letra */
-            margin-bottom: 10px;
-            color: #ff6f61; /* Cambia el color del texto */
-            text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; /* Agrega un efecto de sombra de texto */
-          }
-          .image-box .description {
-            font-size: 0.9em;
-            line-height: 1.2;
-          }
-        </style>
-      </head>            
-  <body>
-    <h1>Imágenes desde Google</h1>
-    <div id="IMAGENES"></div>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script>
-      // Carga la API de Google Cloud y autentica el usuario
-      gapi.load('client', initClient);
-  function initClient() {
-    gapi.client.init({
-      apiKey: 'AIzaSyACh5PQ2SjLsVkfnNeIDT2i2AmwH9rlBms',
-      discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-    }).then(function() {
-      // Una vez que se autentica el usuario, se obtienen los datos de la hoja de cálculo
-      gapi.client.sheets.spreadsheets.values.get({
-        spreadsheetId: '1GUKarICFMikMYz4-zyF0wlvwyt30eVKrbZX0ZwXuhCM',
-        range: 'B2:I2',
-      }).then(function(response) {
-        var range = response.result;
-        if (range.values.length > 0) {
-          // Itera sobre las celdas para obtener la URL de la imagen y la información adicional
-          for (i = 0; i < range.values.length; i++) {
-            var image_url = range.values[i][0];
-            var price = range.values[i][7];
-            var description = range.values[i][3];
-            // Crea un elemento de imagen HTML y establece su fuente en la URL de la imagen
-            // Crea un elemento de imagen HTML y establece su fuente en la URL de la imagen
-var img = document.createElement('img');
-img.src = image_url;
 
-// Crea un elemento de contenedor HTML para la imagen y su información adicional
-var box = document.createElement('div');
-box.classList.add('image-box');
 
-// Agrega el precio a la caja de imagen
-var priceElement = document.createElement('div');
-priceElement.classList.add('price');
-priceElement.innerHTML = price;
-box.appendChild(priceElement);
-
-// Agrega la imagen a la caja de imagen
-box.appendChild(img);
-
-// Agrega la descripción a la caja de imagen
-var descriptionElement = document.createElement('div');
-descriptionElement.classList.add('description');
-descriptionElement.innerHTML = description;
-box.appendChild(descriptionElement);
-
-// Agrega el botón con la URL a la caja de imagen
-var buttonElement = document.createElement('a');
-buttonElement.classList.add('button');
-buttonElement.innerHTML = 'ver mas';
-buttonElement.href = 'https://www.ejemplo.com';
-box.appendChild(buttonElement);
-
-// Agrega la caja de imagen al elemento de la página HTML
-document.getElementById('IMAGENES').appendChild(box);
-
-            // Agrega la caja de imagen al elemento de la página HTML
-            document.getElementById('IMAGENES').appendChild(box);
-          }
-        } else {
-          console.log('No se encontraron datos.');
-        }
-      }, function(response) {
-        console.log('Error: ' + response.result.error.message);
-      });
-    });
+.image-section {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
   }
-</script>
-</body>
+
+  .container {
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+  }
+
+      .video-container {
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 50px;
+        margin-left: 50px;
+        position: relative;
+        left: 100px;
+        top: 500px;
+      }
+
+      video {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="image-section">
+      <div class="container">
+        <img src="https://drive.google.com/uc?id=1vBl9o-JgWy23B50ivPTFdewY5g8bS21g" alt="Descripción de la imagen" style="width: 150%;">
+      </div>
+    </section>
+    <h1><a href="https://www.ejemplo.com">- llamanos o escribanos al whatsapp para mas informcion</a></h1>
+    <div class="video-container">
+      <video id="https://drive.google.com/uc?id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k
+      " controls>
+        <source src="https://drive.google.com/uc?export=download&id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k" type="video/mp4">
+        Tu navegador no soporta el elemento video.
+      </video>
+      <section class="image-section">
+        <div class="container">
+          <img src="https://drive.google.com/uc?id=1vBl9o-JgWy23B50ivPTFdewY5g8bS21g" alt="Descripción de la imagen" style="width: 50%;">
+          <img src="https://drive.google.com/uc?id=1vBl9o-JgWy23B50ivPTFdewY5g8bS21g" alt="Descripción de la imagen" style="width: 50%;">
+        </div>
+        <h2>te contactamos en el menor tiempo posible!</h2>
+    <form action="submit.php" method="post">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" required></textarea>
+      <input type="submit" value="Enviar">
+    </form>
+      </section>
+    </div>    
+
+
+    <script>
+      const video = document.getElementById('my-video');
+
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    </script>
+  </body>
 </html>
+
