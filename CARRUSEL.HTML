@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carrusel de Texto</title>
+    <style>
+      .carousel-container {
+        height: 100px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .carousel-item {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: slide-up 7s linear infinite;
+      }
+
+      @keyframes slide-up {
+        0% {
+          bottom: -100px;
+        }
+        100% {
+          bottom: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel-container">
+      <div class="carousel-item active">Texto 1</div>
+      <div class="carousel-item">Texto 2</div>
+      <div class="carousel-item">Texto 3</div>
+    </div>
+    <script>
+      const carouselItems = document.querySelectorAll('.carousel-item');
+      let currentItemIndex = 0;
+
+      setInterval(() => {
+        carouselItems[currentItemIndex].classList.remove('active');
+        currentItemIndex = (currentItemIndex + 1) % carouselItems.length;
+        setTimeout(() => {
+          carouselItems[currentItemIndex].classList.add('active');
+        }, 2000);
+      }, 5000);
+    </script>
+  </body>
+</html>

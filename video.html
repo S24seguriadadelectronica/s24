@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reproducir video</title>
+    <style>
+      .video-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      video {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-container">
+      <video id="my-video" controls>
+        <source src="tu-video.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento video.
+      </video>
+    </div>
+
+    <script>
+      const video = document.getElementById('my-video');
+
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    </script>
+  </body>
+</html>

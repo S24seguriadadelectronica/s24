@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrusel de Imágenes con Descripciones</title>
+  <style>
+    .image-carousel {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      height: 100vh; /* Ajusta la altura del carrusel a la altura de la pantalla */
+    }
+
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%; /* Asegura que las diapositivas ocupen la altura completa del carrusel */
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%; /* Asegura que las diapositivas ocupen todo el ancho del carrusel */
+      height: 100%; /* Asegura que las diapositivas ocupen la altura completa del carrusel */
+    }
+
+    .carousel-slide img {
+      width: 50%; /* Ajusta el ancho de la imagen para ocupar la pantalla completa */
+      height: 100%; /* Ajusta la altura de la imagen para ocupar la pantalla completa */
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+    <div class="image-carousel">
+        <div class="carousel-slides">
+          <div class="carousel-slide">
+            <img src="IMAGENES camaras analogas hikvision/DS-2AE5225TI-A PTZ IR ZOOM 25X.png" alt="Image 1">
+            <div class="carousel-caption">
+              <h3>Image 1 Title</h3>
+              <p>Image 1 Description</p>
+              <a href="#" class="cta-button">Explore More</a>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="IMAGENES camaras analogas hikvision/DS-2CC52H1T-FITS 1.1mm.png" alt="Image 2">
+            <div class="carousel-caption">
+              <h3>Image 2 Title</h3>
+              <p>Image 2 Description</p>
+              <a href="#" class="cta-button">Learn More</a>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="IMAGENES camaras analogas hikvision/DS-2CE10DFT-PFC.png" alt="Image 3">
+            <div class="carousel-caption">
+                <h3>Image 3 Title</h3>
+                <p>Image 3 Description</p>
+                <a href="#" class="cta-button">Explore More</a>
+            <!-- Contenido de la diapositiva 3 -->
+          
+          <!-- Add more carousel slides here -->
+        </div>
+      </div>
+    
+  <script>
+    // JavaScript para habilitar el carrusel
+    const carousel = document.querySelector('.carousel');
+    const slides = carousel.querySelector('.slides');
+    const slideWidth = carousel.offsetWidth;
+
+    let slideIndex = 0;
+    setInterval(() => {
+      slideIndex = (slideIndex + 1) % slides.children.length;
+      slides.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+    }, 3000); // Cambia la velocidad de transición aquí (en milisegundos)
+  </script>
+</body>
+</html>
