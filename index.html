@@ -1,169 +1,168 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
- <a href="https://www.ejemplo.com" target="_blank" class="fixed-button">
-  <img src="https://drive.google.com/uc?id=1PfXXGh2cIKzTZD6nmzgjPfl5yBFkdzrX" alt="Texto alternativo de la imagen" width="100" height="100">
-</a>
+  <a href="https://www.ejemplo.com" class="enlace-imagen">
+    <img src="ruta/a/imagen.jpg" alt="Descripción de la imagen">
+    <span class="boton">Enlace</span>
+  </a>
+  
 
+  <style>
 
-    <title>Reproducir video</title>
-    <style>
-
-       /* Estilos para el formulario */
-       form {
-        width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Estilos para los campos de entrada */
-      input[type="text"],
-      input[type="email"],
-      textarea {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: #fff;
-        font-size: 16px;
-        resize: none;
-      }
-
-      /* Estilos para el botón de enviar */
-      input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        float: right;
-      }
-
-      input[type="submit"]:hover {
-        background-color: #45a049;
-      }
-
-      /* Estilos para los campos de entrada con error */
-      input[type="text"].error,
-      input[type="email"].error,
-      textarea.error {
-        border-color: red;
-      }
-
-      /* Estilos para el mensaje de error */
-      .error-message {
-        color: red;
-        font-size: 12px;
-        margin-top: 5px;
-      }
-      
-  .fixed-button {
+.enlace-imagen {
   position: fixed;
-  bottom: 20px;
-  right: 40px;
+  bottom: 20px; /* Distancia desde la parte inferior */
+  right: 20px; /* Distancia desde la parte derecha */
+  z-index: 9999; /* Para que aparezca encima de otros elementos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.enlace-imagen img {
+  max-width: 100%;
+  height: auto;
+}
+
+.enlace-imagen .boton {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.enlace-imagen:hover .boton {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+
+form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    input[type="tel"],
+    input[type="email"] {
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+
+    @media (max-width: 600px) {
+      input[type="submit"] {
+        float: none;
+      }
+
+     /* Estilos para el h1 */
+     h1 {
+      font-size: 2.5rem; /* Tamaño de fuente base */
+      line-height: 1.2; /* Altura de línea base */
+      text-align: center; /* Alineación centrada */
+      position: relative; /* Posicionamiento relativo */
+      top: 50%; /* Desplazamiento hacia abajo */
+      transform: translateY(-50%); /* Centrado vertical */
+      left: 50%; /* Desplazamiento hacia la derecha */
+      transform: translateX(-50%); /* Centrado horizontal */
+    }
+    
+    /* Media query para ajustar el tamaño de fuente en pantallas pequeñas */
+    @media screen and (max-width: 600px) {
       h1 {
-  margin-top: -20px;
-  font-family: Arial, sans-serif; /* Tipo de letra y la lista de fuentes alternativas */
-  color: #0000FF; /* Código hexadecimal de color */
-  font-style: italic; /* Aplicar cursiva */
-  font-weight: bold; /* Aplicar negrita */
-  font-size: 40px; /* Tamaño de letra en píxeles */
-}
-
-
-.image-section {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .container {
-    max-width: 800px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .container img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 5px;
-  }
-
-      .video-container {
-        max-width: 800px;
-        margin: 0 auto;
-        margin-top: 50px;
-        margin-left: 50px;
-        position: relative;
-        left: 100px;
-        top: 500px;
+        font-size: 2rem; /* Tamaño de fuente ajustado */
       }
+    }
+    /* Estilos para el contenedor del video */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* Proporción 16:9 */
+      height: 0;
+      overflow: hidden;
+      max-width: 800px;
+      margin: auto;
+    }
+    
+    /* Estilos para el video */
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-      video {
-        width: 100%;
-        height: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <section class="image-section">
-      <div class="container">
-        <img src="https://drive.google.com/uc?id=1vBl9o-JgWy23B50ivPTFdewY5g8bS21g" alt="Descripción de la imagen" style="width: 150%;">
-      </div>
-    </section>
-    <h1><a href="https://www.ejemplo.com">- llamanos o escribanos al whatsapp para mas informcion</a></h1>
-    <div class="video-container">
-      <video id="https://drive.google.com/uc?id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k
-      " controls>
-        <source src="https://drive.google.com/uc?export=download&id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k" type="video/mp4">
-        Tu navegador no soporta el elemento video.
-      </video>
-      <section class="image-section">
-        <div class="container">
-          <img src="https://drive.google.com/uc?id=1vBl9o-JgWy23B50ivPTFdewY5g8bS21g" alt="Descripción de la imagen" style="width: 50%;">
-          <img src="https://drive.google.com/uc?id=1vBl9o-JgWy23B50ivPTFdewY5g8bS21g" alt="Descripción de la imagen" style="width: 50%;">
-        </div>
-        <h2>te contactamos en el menor tiempo posible!</h2>
-    <form action="submit.php" method="post">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" required></textarea>
-      <input type="submit" value="Enviar">
-    </form>
-      </section>
-    </div>    
+    /* Estilos para el contenedor de la imagen */
+    .image-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+    }
+    
+    /* Estilos para la imagen */
+    .image-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    
+    /* Estilos para el tema de fondo */
+    body {
+      background: url('https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5') no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5
+    " alt="Descripción de la imagen">
+  </div>
 
+  <h1><a href="https://ejemplo.com">Título principal con enlace</a></h1>
 
-    <script>
-      const video = document.getElementById('my-video');
+  <div class="video-container">
+    <video controls>
+      <source src="https://drive.google.com/uc?id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k" type="video/mp4">
+    </video>
+  </div>
 
-      video.addEventListener('click', () => {
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      });
-    </script>
-  </body>
+  <div class="image-container">
+    <img src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5"alt="Descripción de la imagen" style="width: 50%;">
+    <img src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5"alt="Descripción de la imagen" style="width: 50%;">
+    " alt="Descripción de la imagen">
+  </div>
+
+  <h1>Contáctame</h1>
+  <form>
+    <label for="telefono">Número de teléfono:</label>
+    <input type="tel" id="telefono" name="telefono">
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email">
+
+    <input type="submit" value="Enviar">
+  </form>
+
+</body>
 </html>
