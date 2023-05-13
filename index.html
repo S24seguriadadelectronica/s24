@@ -3,13 +3,43 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <a href="https://www.ejemplo.com" class="enlace-imagen">
-    <img src="ruta/a/imagen.jpg" alt="Descripción de la imagen">
-    <span class="boton">Enlace</span>
+  <a href="https://wa.me/3158859744/?text=https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5" class="enlace-imagen">
+    <img src="https://drive.google.com/uc?id=1PfXXGh2cIKzTZD6nmzgjPfl5yBFkdzrX" alt="Descripción de la imagen">
+    <span class="boton">chat</span>
   </a>
   
 
   <style>
+
+.centrado {
+   text-align: center;
+   margin: 0;
+   padding: 20px;  
+   color: red;
+}
+
+
+span {
+   display: inline-block;
+   animation-name: desaparecer;
+   animation-duration: 5s;
+   animation-fill-mode: forwards;
+   display: inline-block;
+   margin: 0 0px; /* ajusta el margen según tus necesidades */
+}
+
+@keyframes desaparecer {
+   0% {
+      opacity: 1;
+   }
+   80% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
+}
+
 
 .enlace-imagen {
   position: fixed;
@@ -17,21 +47,21 @@
   right: 20px; /* Distancia desde la parte derecha */
   z-index: 9999; /* Para que aparezca encima de otros elementos */
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
 }
 
 .enlace-imagen img {
-  max-width: 100%;
+  max-width: 10%;
   height: auto;
 }
 
 .enlace-imagen .boton {
   position: absolute;
-  background-color: #333;
+  background-color: #0000ffff;
   color: #fff;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 1px;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
   opacity: 0;
@@ -139,7 +169,16 @@ form {
     " alt="Descripción de la imagen">
   </div>
 
-  <h1><a href="https://ejemplo.com">Título principal con enlace</a></h1>
+  <h1><a href="#mi-seccion">10% de descuento adicional en su primera compra ¡con el registro!!  </a></h1>
+
+  <div class="image-container">
+    <a href="ruta-del-enlace">
+   <img src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5" alt="Descripción de la imagen" style="width: 40%;">
+</a>
+<a href="ruta-del-enlace">
+   <img src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5" alt="Descripción de la imagen" style="width: 40%;">
+</a>
+  </div>
 
   <div class="video-container">
     <video controls>
@@ -147,14 +186,8 @@ form {
     </video>
   </div>
 
-  <div class="image-container">
-    <img src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5"alt="Descripción de la imagen" style="width: 50%;">
-    <img src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5"alt="Descripción de la imagen" style="width: 50%;">
-    " alt="Descripción de la imagen">
-  </div>
-
-  <h1>Contáctame</h1>
-  <form>
+  <h1 class="centrado">te contactamos en el menor tiempo</h1>
+  <form>id
     <label for="telefono">Número de teléfono:</label>
     <input type="tel" id="telefono" name="telefono">
 
@@ -163,6 +196,8 @@ form {
 
     <input type="submit" value="Enviar">
   </form>
-
+  <section id="mi-seccion">
+   <!-- contenido de la sección -->
+</section>
 </body>
 </html>
