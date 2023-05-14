@@ -1,0 +1,22 @@
+.container {
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+}
+
+.image-wrapper {
+    width: 120px;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: auto;
+    z-index: -1;
+}
