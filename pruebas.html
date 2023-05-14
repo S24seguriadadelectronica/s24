@@ -1,118 +1,150 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi sitio web</title>
-    <style>
-      /* Estilos para el menú de navegación */
-      header {
-        background-color: #333;
-        color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="https://ejemplo.com/imagen.jpg">
+  <meta property="og:title" content="Título de la página">
+  <meta property="og:description" content="Descripción de la página">
+  <meta property="og:url" content="https://ejemplo.com">
+
+
+  <div id="imagen-fija">
+    <a href="https://wa.me/3158859744/?text=https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5"><img src="imagenes portada/logo whatsapp transprente (1).png" alt="Descripción de la imagen"></a>
+  </div>
+
+  <style>
+
+#imagen-fija {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100px; /* Cambia este valor para ajustar el ancho de la imagen */
+  height: 100px; /* Cambia este valor para ajustar la altura de la imagen */
+  padding: 10px; /* Agrega un relleno para asegurarte de que la imagen no esté demasiado cerca del borde */
+  background-color: #fff; /* Agrega un color de fondo para asegurarte de que la imagen sea visible */
+  border-radius: 10%; /* Agrega una forma circular a la imagen */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Agrega una sombra para destacar la imagen */
+  z-index: 9999; /* Agrega una posición en la capa superior para que la imagen aparezca encima de otros elementos */
+}
+
+#imagen-fija img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* Asegura que la imagen se muestre correctamente */
+  margin: 0 auto; /* Centra la imagen en el div */
+}
+
+/* Estilos para el contenedor del video */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporción 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+/* Estilos para el video */
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura según tus necesidades */
+  margin: 500px auto;
+}
+
+
+ /* Estilos para el h1 a*/
+ h1 a {
+      font-size: 2.5rem; /* Tamaño de fuente base */
+      line-height: 1.2; /* Altura de línea base */
+      text-align: center; /* Alineación centrada */
+      position: relative; /* Posicionamiento relativo */
+      top: 50%; /* Desplazamiento hacia abajo */
+      transform: translateY(-50%); /* Centrado vertical */
+      left: 5%; /* Desplazamiento hacia la derecha */
+      transform: translateX(-50%); /* Centrado horizontal */
+    }
+    
+    /* Media query para ajustar el tamaño de fuente en pantallas pequeñas */
+    @media screen and (max-width: 600px) {
+      h1 a {
+        font-size: 2rem; /* Tamaño de fuente ajustado */
       }
+}
 
-      .logo {
-        font-size: 24px;
-        font-weight: bold;
+
+
+/* Estilos para el h1 */
+h1  {
+      font-size: 2.5rem; /* Tamaño de fuente base */
+      line-height: 1.2; /* Altura de línea base */
+      text-align: center; /* Alineación centrada */
+      position: relative; /* Posicionamiento relativo */
+      top: 50%; /* Desplazamiento hacia abajo */
+      transform: translateY(-50%); /* Centrado vertical */
+      left: 50%; /* Desplazamiento hacia la derecha */
+      transform: translateX(-50%); /* Centrado horizontal */
+    }
+    
+    /* Media query para ajustar el tamaño de fuente en pantallas pequeñas */
+    @media screen and (max-width: 300px) {
+      h1  {
+        font-size: 2rem; /* Tamaño de fuente ajustado */
       }
+}
 
-      nav {
-        display: none;
-      }
+/* Estilos para el tema de fondo */
+body {
+      background: url('https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5') no-repeat center center fixed;
+      background-size: cover;
+    }
 
-      label {
-        cursor: pointer;
-        font-size: 24px;
-      }
 
-      input[type="checkbox"] {
-        display: none;
-      }
-
-      @media screen and (min-width: 768px) {
-        nav {
-          display: block;
-        }
-
-        label {
-          display: none;
-        }
-
-        .menu {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .menu li {
-          margin-right: 20px;
-        }
-
-        .menu li:last-child {
-          margin-right: 0;
-        }
-
-        .menu a {
-          color: #fff;
-          text-decoration: none;
-          font-size: 18px;
-          font-weight: bold;
-          padding: 10px;
-        }
-
-        .menu a:hover {
-          background-color: #555;
-        }
-      }
-
-      /* Estilos para el contenido de la página */
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-      }
-
-      .contenido {
-        padding: 80px 20px 20px;
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-
-      p {
-        font-size: 24px;
-        line-height: 1.5;
-      }
-    </style>
+  </style>
   </head>
   <body>
-    <!-- Menú de navegación -->
-    <header>
-      <div class="logo">Mi sitio web</div>
-      <nav>
-        <ul class="menu">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Productos</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </nav>
-      <label for="toggle">&#9776;</label>
-      <input type="checkbox" id="toggle" />
-    </header>
 
-    <!-- Contenido de la página -->
-    <div class="contenido">
-      <h1>Bienvenidos a mi sitio web</h1>
-      <p>Este es el contenido de la página</p>
+    <div class="image-container">
+      <img id="imagen1" src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5" alt="Descripción de la imagen" style="max-width: 100%; height: auto;">
     </div>
+
+    <h1><a href="#mi-seccion">10% de descuento adicional en su primera compra ¡con el registro!!  </a></h1>
+
+    
+    <div class="image-container">
+      <a href="descripciontienda.html">
+      <img id="imagen2" src="imagenes portada/mira los kits DS-2CE16D0T-IRPF.png" alt="Imagen 2" style="max-width: 48%; display: inline-block;margin-top: 200px;">
+  </a>
+  <a href="pruebas.html">
+    <img id="imagen3" src="imagenes portada/imagen entrada domo DS-2CE56D0T-IRPF.png" alt="Imagen 3" style="max-width: 48%; display: inline-block;margin-top: 200px;">
+  </a>
+    </div>
+
+    <div class="video-container">
+      <video controls>
+        <source src="https://drive.google.com/uc?id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k" type="video/mp4">
+      </video>
+    </div>
+    
+
+    <div class="form-container">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScy1Yt8kMTZt_oQmd9X0agx5qafLIsZys7JUcFkQxjR5Sk9gg/viewform?embedded=true" width="640" height="780" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">Cargando…</iframe>
+    </div>
+    <section id="mi-seccion">
+   <!-- contenido de la sección -->
+</section>
+    <h1>para conocer más sobre nosotros, nuestros productos y servicios por favor comuníquese al WhatsApp o regístrese y nos contactáremos en la mayor brevedad</h1>
   </body>
-</html>
+  </html>
