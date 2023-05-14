@@ -7,15 +7,52 @@
   <meta property="og:description" content="Descripción de la página">
   <meta property="og:url" content="https://ejemplo.com">
 
-
-
-  <a href="https://wa.me/3158859744/?text=https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5" class="enlace-imagen">
-    <img src="https://drive.google.com/uc?id=1PfXXGh2cIKzTZD6nmzgjPfl5yBFkdzrX" alt="Descripción de la imagen">
-    <span class="boton">chat</span>
-  </a>
+ 
+  <div id="imagen-fija">
+    <a href="#"><img src="imagenes portada/logo whatsapp transprente (1).png" alt="Descripción de la imagen"></a>
+  </div>
   
 
   <style>
+
+    
+#imagen-fija {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100px; /* Cambia este valor para ajustar el ancho de la imagen */
+  height: 100px; /* Cambia este valor para ajustar la altura de la imagen */
+  padding: 10px; /* Agrega un relleno para asegurarte de que la imagen no esté demasiado cerca del borde */
+  background-color: #fff; /* Agrega un color de fondo para asegurarte de que la imagen sea visible */
+  border-radius: 10%; /* Agrega una forma circular a la imagen */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Agrega una sombra para destacar la imagen */
+  z-index: 9999; /* Agrega una posición en la capa superior para que la imagen aparezca encima de otros elementos */
+}
+
+#imagen-fija img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* Asegura que la imagen se muestre correctamente */
+  margin: 0 auto; /* Centra la imagen en el div */
+}
+
+
+
+    
+    .container {
+  position: relative; /* El contenedor debe tener una posición relativa para que la imagen se posicione de forma correcta */
+  /* Otros estilos para el contenedor de la imagen */
+}
+
+.sticky-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Otros estilos para la imagen */
+}
+
+
+
 
 .navbar-brand img {
   height: 50px;
@@ -105,36 +142,7 @@ span {
 }
 
 
-.enlace-imagen {
-  position: fixed;
-  bottom: 20px; /* Distancia desde la parte inferior */
-  right: 20px; /* Distancia desde la parte derecha */
-  z-index: 9999; /* Para que aparezca encima de otros elementos */
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
 
-.enlace-imagen img {
-  max-width: 10%;
-  height: auto;
-}
-
-.enlace-imagen .boton {
-  position: absolute;
-  background-color: #0000ffff;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 1px;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
-}
-
-.enlace-imagen:hover .boton {
-  opacity: 1;
-  transform: translateY(-10px);
-}
 
 
 form {
