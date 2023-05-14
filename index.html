@@ -1,134 +1,288 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Mostrar imágenes desde Google Sheets</title>
-        <style>
-            .image-box .price {
-  font-weight: bold;
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  background-color: orange;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="https://ejemplo.com/imagen.jpg">
+  <meta property="og:title" content="Título de la página">
+  <meta property="og:description" content="Descripción de la página">
+  <meta property="og:url" content="https://ejemplo.com">
+
+
+
+  <a href="https://wa.me/3158859744/?text=https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5" class="enlace-imagen">
+    <img src="https://drive.google.com/uc?id=1PfXXGh2cIKzTZD6nmzgjPfl5yBFkdzrX" alt="Descripción de la imagen">
+    <span class="boton">chat</span>
+  </a>
+  
+
+  <style>
+
+.navbar-brand img {
+  height: 50px;
+  margin-right: 10px;
+  margin-bottom: 0px;
 }
 
-            .image-box .description {
-  font-size: 0.9em;
-  line-height: 1.2;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-            .image-box {
-  border: 1px solid #e60000;
-  padding: 10px;
-  margin-bottom: 20px;
-  width: 300px;
-  display: inline-block;
-  vertical-align: top;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-}
-          /* Agrega estas líneas para cambiar la fuente y el tamaño de letra */
-          body {
-            font-family: 'Helvetica Neue', sans-serif;
-            font-size: 16px;
-            line-height: 1.4;
-          }
-          /* Agrega el resto del CSS aquí */
-          .image-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-            width: 300px;
-            display: inline-block;
-            vertical-align: top;
-          }
-          .image-box img {
-            width: 100%;
-            margin-bottom: 10px;
-          }
-          .image-box .price {
-            font-weight: bold;
-            font-size: 1.6em; /* Cambia el tamaño de letra */
-            margin-bottom: 10px;
-            color: #ff6f61; /* Cambia el color del texto */
-            text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; /* Agrega un efecto de sombra de texto */
-          }
-          .image-box .description {
-            font-size: 0.9em;
-            line-height: 1.2;
-          }
-        </style>
-      </head>            
-  <body>
-    <h1>Imágenes desde Google Sheets</h1>
-    <div id="IMAGENES"></div>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script>
-      // Carga la API de Google Cloud y autentica el usuario
-      gapi.load('client', initClient);
-  function initClient() {
-    gapi.client.init({
-      apiKey: 'AIzaSyACh5PQ2SjLsVkfnNeIDT2i2AmwH9rlBms',
-      discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-    }).then(function() {
-      // Una vez que se autentica el usuario, se obtienen los datos de la hoja de cálculo
-      gapi.client.sheets.spreadsheets.values.get({
-        spreadsheetId: '1GUKarICFMikMYz4-zyF0wlvwyt30eVKrbZX0ZwXuhCM',
-        range: 'B2:I2',
-      }).then(function(response) {
-        var range = response.result;
-        if (range.values.length > 0) {
-          // Itera sobre las celdas para obtener la URL de la imagen y la información adicional
-          for (i = 0; i < range.values.length; i++) {
-            var image_url = range.values[i][0];
-            var price = range.values[i][7];
-            var description = range.values[i][3];
-            // Crea un elemento de imagen HTML y establece su fuente en la URL de la imagen
-            // Crea un elemento de imagen HTML y establece su fuente en la URL de la imagen
-var img = document.createElement('img');
-img.src = image_url;
-
-// Crea un elemento de contenedor HTML para la imagen y su información adicional
-var box = document.createElement('div');
-box.classList.add('image-box');
-
-// Agrega el precio a la caja de imagen
-var priceElement = document.createElement('div');
-priceElement.classList.add('price');
-priceElement.innerHTML = price;
-box.appendChild(priceElement);
-
-// Agrega la imagen a la caja de imagen
-box.appendChild(img);
-
-// Agrega la descripción a la caja de imagen
-var descriptionElement = document.createElement('div');
-descriptionElement.classList.add('description');
-descriptionElement.innerHTML = description;
-box.appendChild(descriptionElement);
-
-// Agrega el botón con la URL a la caja de imagen
-var buttonElement = document.createElement('a');
-buttonElement.classList.add('button');
-buttonElement.innerHTML = 'ver mas';
-buttonElement.href = 'https://www.ejemplo.com';
-box.appendChild(buttonElement);
-
-// Agrega la caja de imagen al elemento de la página HTML
-document.getElementById('IMAGENES').appendChild(box);
-
-            // Agrega la caja de imagen al elemento de la página HTML
-            document.getElementById('IMAGENES').appendChild(box);
-          }
-        } else {
-          console.log('No se encontraron datos.');
-        }
-      }, function(response) {
-        console.log('Error: ' + response.result.error.message);
-      });
-    });
+@media only screen and (max-width: 7px) {
+  .navbar-brand img {
+    height: 40px;
   }
-</script>
+}
+
+
+
+      /* Estilos para el contenido de la página */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .contenido {
+        padding: 80px 20px 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 24px;
+        line-height: 1.5;
+      }
+
+
+
+
+
+
+img {
+  margin-bottom: 100px;
+}
+
+.video-container {
+  margin-top: 100px;
+}
+
+
+    img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.centrado {
+   text-align: center;
+   margin: 0;
+   padding: 20px;  
+   color: red;
+   margin-top: 200px;
+}
+
+
+span {
+   display: inline-block;
+   animation-name: desaparecer;
+   animation-duration: 5s;
+   animation-fill-mode: forwards;
+   display: inline-block;
+   margin: 0 0px; /* ajusta el margen según tus necesidades */
+}
+
+@keyframes desaparecer {
+   0% {
+      opacity: 1;
+   }
+   80% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
+}
+
+
+.enlace-imagen {
+  position: fixed;
+  bottom: 20px; /* Distancia desde la parte inferior */
+  right: 20px; /* Distancia desde la parte derecha */
+  z-index: 9999; /* Para que aparezca encima de otros elementos */
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.enlace-imagen img {
+  max-width: 10%;
+  height: auto;
+}
+
+.enlace-imagen .boton {
+  position: absolute;
+  background-color: #0000ffff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.enlace-imagen:hover .boton {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #008CBA;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #005d7e;
+}
+
+@media (max-width: 600px) {
+  form {
+    max-width: 100%;
+  }
+
+     /* Estilos para el h1 */
+     h1 {
+      font-size: 2.5rem; /* Tamaño de fuente base */
+      line-height: 1.2; /* Altura de línea base */
+      text-align: center; /* Alineación centrada */
+      position: relative; /* Posicionamiento relativo */
+      top: 50%; /* Desplazamiento hacia abajo */
+      transform: translateY(-50%); /* Centrado vertical */
+      left: 50%; /* Desplazamiento hacia la derecha */
+      transform: translateX(-50%); /* Centrado horizontal */
+    }
+    
+    /* Media query para ajustar el tamaño de fuente en pantallas pequeñas */
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2rem; /* Tamaño de fuente ajustado */
+      }
+    }
+    /* Estilos para el contenedor del video */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* Proporción 16:9 */
+      height: 0;
+      overflow: hidden;
+      max-width: 800px;
+      margin: auto;
+    }
+    
+    /* Estilos para el video */
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Estilos para el contenedor de la imagen */
+    .image-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+    }
+    
+    /* Estilos para la imagen */
+    .image-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    
+    /* Estilos para el tema de fondo */
+    body {
+      background: url('https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5') no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5
+    " alt="Descripción de la imagen">
+  </div>
+
+  <h1><a href="#mi-seccion">10% de descuento adicional en su primera compra ¡con el registro!!  </a></h1>
+
+  <div class="image-container">
+    <a href="descripciontienda.html">
+   <img src="imagenes portada/mira los kits DS-2CE16D0T-IRPF.png" alt="Descripción de la imagen" style="width: 48%;">
+</a>
+<a href="pruebas.html">
+   <img src="imagenes portada/imagen entrada domo DS-2CE56D0T-IRPF.png" alt="Descripción de la imagen" style="width: 48%;">
+</a>
+  </div>
+
+  <div class="video-container">
+    <video controls>
+      <source src="https://drive.google.com/uc?id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k" type="video/mp4">
+    </video>
+  </div>
+
+  <h1 class="centrado">te contactamos en el menor tiempo</h1>
+  <form>id
+    <label for="telefono">Número de teléfono:</label>
+    <input type="tel" id="telefono" name="telefono">
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email">
+
+    <input type="submit" value="Enviar">
+  </form>
+  <section id="mi-seccion">
+   <!-- contenido de la sección -->
+</section>
+
+
+
+
 </body>
 </html>
