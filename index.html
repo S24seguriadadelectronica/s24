@@ -7,15 +7,13 @@
   <meta property="og:description" content="Descripción de la página">
   <meta property="og:url" content="https://ejemplo.com">
 
- 
+
   <div id="imagen-fija">
     <a href="https://wa.me/3158859744/?text=https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5"><img src="imagenes portada/logo whatsapp transprente (1).png" alt="Descripción de la imagen"></a>
   </div>
-  
 
   <style>
 
-    
 #imagen-fija {
   position: fixed;
   bottom: 0;
@@ -24,10 +22,7 @@
   height: 100px; /* Cambia este valor para ajustar la altura de la imagen */
   padding: 10px; /* Agrega un relleno para asegurarte de que la imagen no esté demasiado cerca del borde */
   background-color: #fff; /* Agrega un color de fondo para asegurarte de que la imagen sea visible */
-<<<<<<< HEAD
-=======
   border-radius: 10%; /* Agrega una forma circular a la imagen */
->>>>>>> 3f0007daa986bbbb54c0aca8481fdd18880b0d9b
   box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Agrega una sombra para destacar la imagen */
   z-index: 9999; /* Agrega una posición en la capa superior para que la imagen aparezca encima de otros elementos */
 }
@@ -39,261 +34,67 @@
   margin: 0 auto; /* Centra la imagen en el div */
 }
 
-
-
-    
-    .container {
-  position: relative; /* El contenedor debe tener una posición relativa para que la imagen se posicione de forma correcta */
-  /* Otros estilos para el contenedor de la imagen */
+/* Estilos para el contenedor del video */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporción 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 10vh;
 }
 
-.sticky-img {
-  position: fixed;
+/* Estilos para el video */
+.video-container video {
+  position: absolute;
   top: 0;
   left: 0;
-  /* Otros estilos para la imagen */
-}
-
-
-
-
-.navbar-brand img {
-  height: 50px;
-  margin-right: 10px;
-  margin-bottom: 0px;
-}
-
-@media only screen and (max-width: 7px) {
-  .navbar-brand img {
-    height: 40px;
-  }
-}
-
-
-
-      /* Estilos para el contenido de la página */
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-      }
-
-      .contenido {
-        padding: 80px 20px 20px;
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-
-      p {
-        font-size: 24px;
-        line-height: 1.5;
-      }
-
-
-
-
-
-
-img {
-  margin-bottom: 100px;
-}
-
-.video-container {
-  margin-top: 100px;
-}
-
-
-    img {
-  max-width: 100%;
-  height: auto;
-}
-
-
-.centrado {
-   text-align: center;
-   margin: 0;
-   padding: 20px;  
-   color: red;
-   margin-top: 200px;
-}
-
-
-span {
-   display: inline-block;
-   animation-name: desaparecer;
-   animation-duration: 5s;
-   animation-fill-mode: forwards;
-   display: inline-block;
-   margin: 0 0px; /* ajusta el margen según tus necesidades */
-}
-
-@keyframes desaparecer {
-   0% {
-      opacity: 1;
-   }
-   80% {
-      opacity: 1;
-   }
-   100% {
-      opacity: 0;
-   }
-}
-
-
-
-
-
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  margin-bottom: 200px;
-  padding: 20px;
-  background-color: #f7f7f7;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-form label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #444;
-}
-
-input[type="tel"],
-input[type="email"] {
   width: 100%;
-  height: 40px;
-  padding: 10px;
-  border: none;
-  border-bottom: 2px solid #ddd;
-  font-size: 16px;
-  margin-bottom: 20px;
+  height: 100%;
 }
 
-input[type="submit"] {
-  background-color: #008CBA;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
+
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura según tus necesidades */
+  margin: 500px auto;
 }
 
-input[type="submit"]:hover {
-  background-color: #005d7e;
-}
 
-@media (max-width: 600px) {
-  form {
-    max-width: 100%;
-  }
 
-     /* Estilos para el h1 */
-     h1 {
-      font-size: 2.5rem; /* Tamaño de fuente base */
-      line-height: 1.2; /* Altura de línea base */
-      text-align: center; /* Alineación centrada */
-      position: relative; /* Posicionamiento relativo */
-      top: 50%; /* Desplazamiento hacia abajo */
-      transform: translateY(-50%); /* Centrado vertical */
-      left: 50%; /* Desplazamiento hacia la derecha */
-      transform: translateX(-50%); /* Centrado horizontal */
-    }
-    
-    /* Media query para ajustar el tamaño de fuente en pantallas pequeñas */
-    @media screen and (max-width: 600px) {
-      h1 {
-        font-size: 2rem; /* Tamaño de fuente ajustado */
-      }
-    }
-    /* Estilos para el contenedor del video */
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%; /* Proporción 16:9 */
-      height: 0;
-      overflow: hidden;
-      max-width: 800px;
-      margin: auto;
-    }
-    
-    /* Estilos para el video */
-    .video-container video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
 
-    /* Estilos para el contenedor de la imagen */
-    .image-container {
-      position: relative;
-      width: 100%;
-      max-width: 600px;
-      margin: auto;
-    }
-    
-    /* Estilos para la imagen */
-    .image-container img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-    
-    /* Estilos para el tema de fondo */
-    body {
-      background: url('') no-repeat center center fixed;
-      background-size: cover;
-    }
   </style>
-</head>
-<body>
-  <div class="image-container">
-    <img src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5
-    " alt="Descripción de la imagen">
-  </div>
+  </head>
+  <body>
 
-  <h1><a href="#mi-seccion">10% de descuento adicional en su primera compra ¡con el registro!!  </a></h1>
+    <div class="image-container">
+      <img id="imagen1" src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5" alt="Descripción de la imagen" style="max-width: 100%; height: auto;">
+    </div>
+    
+    <div class="image-container">
+      <a href="descripciontienda.html">
+      <img id="imagen2" src="imagenes portada/mira los kits DS-2CE16D0T-IRPF.png" alt="Imagen 2" style="max-width: 48%; display: inline-block;margin-top: 200px;">
+  </a>
+  <a href="pruebas.html">
+    <img id="imagen3" src="imagenes portada/imagen entrada domo DS-2CE56D0T-IRPF.png" alt="Imagen 3" style="max-width: 48%; display: inline-block;margin-top: 200px;">
+  </a>
+    </div>
 
-  <div class="image-container">
-    <a href="descripciontienda.html">
-   <img src="imagenes portada/mira los kits DS-2CE16D0T-IRPF.png" alt="Descripción de la imagen" style="width: 48%;">
-</a>
-<a href="pruebas.html">
-   <img src="imagenes portada/imagen entrada domo DS-2CE56D0T-IRPF.png" alt="Descripción de la imagen" style="width: 48%;">
-</a>
-  </div>
+    <div class="video-container">
+      <video controls>
+        <source src="https://drive.google.com/uc?id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k" type="video/mp4">
+      </video>
+    </div>
+    
 
-  <div class="video-container">
-    <video controls>
-      <source src="https://drive.google.com/uc?id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k" type="video/mp4">
-    </video>
-  </div>
-
-  <h1 class="centrado">te contactamos en el menor tiempo</h1>
-  <form>id
-    <label for="telefono">Número de teléfono:</label>
-    <input type="tel" id="telefono" name="telefono">
-
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="email">
-
-    <input type="submit" value="Enviar">
-  </form>
-  <section id="mi-seccion">
-   <!-- contenido de la sección -->
-</section>
-
-
-
-
-</body>
-</html>
+    <div class="form-container">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScy1Yt8kMTZt_oQmd9X0agx5qafLIsZys7JUcFkQxjR5Sk9gg/viewform?embedded=true" width="640" height="780" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+    </div>
+    
+    
+  </body>
+  </html>
