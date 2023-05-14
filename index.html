@@ -65,6 +65,31 @@
 }
 
 
+ /* Estilos para el h1 */
+ h1 a {
+      font-size: 2.5rem; /* Tamaño de fuente base */
+      line-height: 1.2; /* Altura de línea base */
+      text-align: center; /* Alineación centrada */
+      position: relative; /* Posicionamiento relativo */
+      top: 50%; /* Desplazamiento hacia abajo */
+      transform: translateY(-50%); /* Centrado vertical */
+      left: 5%; /* Desplazamiento hacia la derecha */
+      transform: translateX(-50%); /* Centrado horizontal */
+    }
+    
+    /* Media query para ajustar el tamaño de fuente en pantallas pequeñas */
+    @media screen and (max-width: 600px) {
+      h1 a {
+        font-size: 2rem; /* Tamaño de fuente ajustado */
+      }
+
+
+
+/* Estilos para el tema de fondo */
+body {
+      background: url('https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5') no-repeat center center fixed;
+      background-size: cover;
+    }
 
 
   </style>
@@ -74,6 +99,9 @@
     <div class="image-container">
       <img id="imagen1" src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5" alt="Descripción de la imagen" style="max-width: 100%; height: auto;">
     </div>
+
+    <h1><a href="#mi-seccion">10% de descuento adicional en su primera compra ¡con el registro!!  </a></h1>
+
     
     <div class="image-container">
       <a href="descripciontienda.html">
@@ -92,9 +120,11 @@
     
 
     <div class="form-container">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScy1Yt8kMTZt_oQmd9X0agx5qafLIsZys7JUcFkQxjR5Sk9gg/viewform?embedded=true" width="640" height="780" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScy1Yt8kMTZt_oQmd9X0agx5qafLIsZys7JUcFkQxjR5Sk9gg/viewform?embedded=true" width="640" height="780" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">Cargando…</iframe>
     </div>
-    
+    <section id="mi-seccion">
+   <!-- contenido de la sección -->
+</section>
     
   </body>
   </html>
