@@ -40,7 +40,7 @@
   overflow: hidden;
   max-width: 1600px;
   margin: auto;
-  margin-top: 5vh;
+  margin-top: 10vh;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -60,8 +60,9 @@
   justify-content: center;
   align-items: center;
   height: 100vh; /* Ajusta la altura según tus necesidades */
-  margin: 150px auto;
+  margin: 200px auto;
 }
+
 
 
  /* Estilos para el h1 a*/
@@ -106,7 +107,6 @@ h1  {
         font-size: 2rem; /* Tamaño de fuente ajustado */
       }
 }
-
 /* Estilos para el tema de fondo */
 body {
       background: url('') no-repeat center center fixed;
@@ -115,17 +115,10 @@ body {
 
     #imagen1 {
   width: 100%;
+  max-height: 100vh; /* limita la altura máxima de la imagen al 80% de la altura de la ventana gráfica */
+  box-shadow: 2px 2px 5px #888888;
 }
 
-.image-container {
-  text-align: center;
-  box-shadow: 2px 2px 8px rgb(22, 16, 16);
-}
-
-.image-container img {
-  display: inline-block;
-  margin: 0 auto;
-}
 
 
 
@@ -134,35 +127,37 @@ body {
   </head>
   <body>
 
-    <div class="image-container">
+    <div class="image-container - image-container-1">
       <img id="imagen1" src="imagenes portada/precio bala 1080p DS-2CE16D0T-IRPF.gif" alt="Descripción de la imagen" style="max-width: 150%; height: auto;">
     </div>       
 
     <h1><a href="#mi-seccion">10% de descuento adicional en su primera compra ¡con el registro!!  </a></h1>
 
     
-    <div class="image-container">
+    <div class="image-container - image-container-2">
       <a href="descripciontienda.html">
-      <img id="imagen2" src="imagenes portada/mira los kits DS-2CE16D0T-IRPF.png" alt="Imagen 2" style="max-width: 49%; display: inline-block;margin-top: 20px;">
+      <img id="imagen2" src="imagenes portada/mira los kits DS-2CE16D0T-IRPF.png" alt="Imagen 2" style="max-width: 48%; display: inline-block;margin-top: 10px;box-shadow: 2px 2px 5px #888888;margin-left: 20px;">
   </a>
   <a href="pruebas.html">
-    <img id="imagen3" src="imagenes portada/imagen entrada domo DS-2CE56D0T-IRPF.png" alt="Imagen 3" style="max-width: 49%; display: inline-block;margin-top: 20px;">
+    <img id="imagen3" src="imagenes portada/imagen entrada domo DS-2CE56D0T-IRPF.png" alt="Imagen 3" style="max-width: 48%; display: inline-block;margin-top: 10px;box-shadow: 2px 2px 5px #888888;margin-right: 10px;">
   </a>
     </div>
 
+
+
     <div class="video-container">
       <video controls>
-        <source src="imagenes portada/video bala turbo hd DS-2CE16D0T-IRPF.mp4" type="video/mp4">
+        <source src="https://drive.google.com/uc?id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k" type="video/mp4">
       </video>
     </div>
     
-    <section id="mi-seccion">
+
     <div class="form-container">
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScy1Yt8kMTZt_oQmd9X0agx5qafLIsZys7JUcFkQxjR5Sk9gg/viewform?embedded=true" width="640" height="780" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">Cargando…</iframe>
     </div>
-    <!-- contenido de la sección -->
+    <section id="mi-seccion">
+   <!-- contenido de la sección -->
 </section>
-   
     <h1>para conocer más sobre nosotros, nuestros productos y servicios por favor comuníquese al WhatsApp o regístrese y nos contactáremos en la mayor brevedad</h1>
   </body>
   </html>

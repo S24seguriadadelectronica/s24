@@ -20,10 +20,8 @@
   right: 0;
   width: 100px; /* Cambia este valor para ajustar el ancho de la imagen */
   height: 100px; /* Cambia este valor para ajustar la altura de la imagen */
-  padding: 10px; /* Agrega un relleno para asegurarte de que la imagen no esté demasiado cerca del borde */
-  background-color: #fff; /* Agrega un color de fondo para asegurarte de que la imagen sea visible */
-  border-radius: 10%; /* Agrega una forma circular a la imagen */
-  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Agrega una sombra para destacar la imagen */
+  padding: 0px; /* Agrega un relleno para asegurarte de que la imagen no esté demasiado cerca del borde */
+  border: none;
   z-index: 9999; /* Agrega una posición en la capa superior para que la imagen aparezca encima de otros elementos */
 }
 
@@ -40,9 +38,10 @@
   padding-bottom: 56.25%; /* Proporción 16:9 */
   height: 0;
   overflow: hidden;
-  max-width: 800px;
+  max-width: 1600px;
   margin: auto;
   margin-top: 10vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Estilos para el video */
@@ -61,20 +60,24 @@
   justify-content: center;
   align-items: center;
   height: 100vh; /* Ajusta la altura según tus necesidades */
-  margin: 500px auto;
+  margin: 200px auto;
 }
+
 
 
  /* Estilos para el h1 a*/
  h1 a {
+      color: #fff; /* Agregamos color blanco */
       font-size: 2.5rem; /* Tamaño de fuente base */
       line-height: 1.2; /* Altura de línea base */
       text-align: center; /* Alineación centrada */
       position: relative; /* Posicionamiento relativo */
       top: 50%; /* Desplazamiento hacia abajo */
       transform: translateY(-50%); /* Centrado vertical */
-      left: 5%; /* Desplazamiento hacia la derecha */
+      left: 2%; /* Desplazamiento hacia la derecha */
       transform: translateX(-50%); /* Centrado horizontal */
+      box-shadow: 2px 2px 8px rgb(22, 16, 16);
+      background-color: red;
     }
     
     /* Media query para ajustar el tamaño de fuente en pantallas pequeñas */
@@ -104,37 +107,47 @@ h1  {
         font-size: 2rem; /* Tamaño de fuente ajustado */
       }
 }
-
 /* Estilos para el tema de fondo */
 body {
-      background: url('https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5') no-repeat center center fixed;
+      background: url('') no-repeat center center fixed;
       background-size: cover;
     }
+
+    #imagen1 {
+  width: 100%;
+  max-height: 100vh; /* limita la altura máxima de la imagen al 80% de la altura de la ventana gráfica */
+  box-shadow: 2px 2px 5px #888888;
+}
+
+
+
 
 
   </style>
   </head>
   <body>
 
-    <div class="image-container">
-      <img id="imagen1" src="https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5" alt="Descripción de la imagen" style="max-width: 100%; height: auto;">
-    </div>
+    <div class="image-container - image-container-1">
+      <img id="imagen1" src="imagenes portada/precio domo 1080p DS-2CE56D0T-IRPF.gif" alt="Descripción de la imagen" style="max-width: 150%; height: auto;">
+    </div>       
 
     <h1><a href="#mi-seccion">10% de descuento adicional en su primera compra ¡con el registro!!  </a></h1>
 
     
-    <div class="image-container">
+    <div class="image-container - image-container-2">
       <a href="descripciontienda.html">
-      <img id="imagen2" src="imagenes portada/mira los kits DS-2CE16D0T-IRPF.png" alt="Imagen 2" style="max-width: 48%; display: inline-block;margin-top: 200px;">
+      <img id="imagen2" src="imagenes portada/kits domo DS-2CE56D0T-IRPF.png" alt="Imagen 2" style="max-width: 48%; display: inline-block;margin-top: 10px;box-shadow: 2px 2px 5px #888888;margin-left: 20px;">
   </a>
   <a href="pruebas.html">
-    <img id="imagen3" src="imagenes portada/imagen entrada domo DS-2CE56D0T-IRPF.png" alt="Imagen 3" style="max-width: 48%; display: inline-block;margin-top: 200px;">
+    <img id="imagen3" src="imagenes portada/entrada bala 1080p DS-2CE16D0T-IRPF.png" alt="Imagen 3" style="max-width: 48%; display: inline-block;margin-top: 10px;box-shadow: 2px 2px 5px #888888;margin-right: 10px;">
   </a>
     </div>
 
+
+
     <div class="video-container">
       <video controls>
-        <source src="https://drive.google.com/uc?id=1S4bpKXmpTbXpb8KKH6gGWbTgi-BaMX4k" type="video/mp4">
+        <source src="imagenes portada/video domo 1080p  DS-2CE56D0T-IRPF.mp4" type="video/mp4">
       </video>
     </div>
     
