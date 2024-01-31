@@ -1,211 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:image" content="https://ejemplo.com/imagen.jpg">
-  <meta property="og:title" content="Título de la página">
-  <meta property="og:description" content="Descripción de la página">
-  <meta property="og:url" content="https://ejemplo.com">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contenedor de Imágenes y Video con Bootstrap</title>
+  <!-- Integrar Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+<!-- Integrar Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Integrar Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
+</head>
+<body>
 
-  <div id="imagen-fija">
-    <a href="https://wa.me/3158859744/?text=https://drive.google.com/uc?id=1hw2PiwsJpzkuIuKN406BDkUWsGTzZEk5"><img src="imagenes portada/logo whatsapp transprente (1).png" alt="Descripción de la imagen"></a>
+<!-- Encabezado flotante -->
+<nav class="navbar navbar-light bg-light fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- Logo a la izquierda -->
+    <a class="navbar-brand" href="#">
+      <img src="imagen/0.png" alt="Logo" style="max-width: 100px;">
+    </a>
+    <!-- Mensaje con enlace al formulario en el centro -->
+    <span class="navbar-text mx-auto">
+      <a href="#formulario" style="text-decoration: none; color: inherit;" class="h4 fw-bold">
+        Pídelo ahora y paga en la puerta de tu casa
+      </a>
+    </span>
   </div>
-
-  <style>
-
-#imagen-fija {
-  position: fixed;
-  bottom: 70px;
-  right: 0;
-  width: 60px; /* Cambia este valor para ajustar el ancho de la imagen */
-  height: 60px; /* Cambia este valor para ajustar la altura de la imagen */
-  padding: 10px; /* Agrega un relleno para asegurarte de que la imagen no esté demasiado cerca del borde */
-  border: none;
-  z-index: 9999; /* Agrega una posición en la capa superior para que la imagen aparezca encima de otros elementos */
-}
-
-#imagen-fija img {
-  max-width: 100%;
-  max-height: 100%;
-  display: block; /* Asegura que la imagen se muestre correctamente */
-  margin: 0 auto; /* Centra la imagen en el div */
-}
-
-/* Estilos para el contenedor del video */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* Proporción 16:9 */
-  height: 0;
-  overflow: hidden;
-  max-width: 1600px;
-  margin: auto;
-  margin-top: 10vh;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Estilos para el video */
-.video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+</nav>
 
 
 
-.form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Ajusta la altura según tus necesidades */
-  margin: 200px auto;
-}
+
+<div class="container" style="margin-top: 70px;"> <!-- Agregar un margen superior para el contenido -->
+  <figure class="card mb-3">
+    <img src="imagen/1.png" class="card-img-top" alt="">
+    <figcaption class="card-body">
+      <p class="card-text"></p>
+    </figcaption>
 
 
 
- /* Estilos para el h1 a*/
- h1 a {
-      color: #fff; /* Agregamos color blanco */
-      font-size: 2.5rem; /* Tamaño de fuente base */
-      line-height: 1.2; /* Altura de línea base */
-      text-align: center; /* Alineación centrada */
-      position: relative; /* Posicionamiento relativo */
-      top: 50%; /* Desplazamiento hacia abajo */
-      transform: translateY(-50%); /* Centrado vertical */
-      left: 2%; /* Desplazamiento hacia la derecha */
-      transform: translateX(-50%); /* Centrado horizontal */
-      box-shadow: 2px 2px 8px rgb(22, 16, 16);
-      background-color: red;
-    }
+    <a class="btn btn-primary custom-btn font-italic" href="#formulario">
+  <span class="display-2">obtén la oferta!!</span>
+</a>
+
     
-    /* Media query para ajustar el tamaño de fuente en pantallas pequeñas */
-    @media screen and (max-width: 600px) {
-      h1 a {
-        font-size: 2rem; /* Tamaño de fuente ajustado */
-      }
-}
-
-
-
-/* Estilos para el h1 */
-h1  {
-      font-size: 2.5rem; /* Tamaño de fuente base */
-      line-height: 1.2; /* Altura de línea base */
-      text-align: center; /* Alineación centrada */
-      position: relative; /* Posicionamiento relativo */
-      top: 50%; /* Desplazamiento hacia abajo */
-      transform: translateY(-50%); /* Centrado vertical */
-      left: 50%; /* Desplazamiento hacia la derecha */
-      transform: translateX(-50%); /* Centrado horizontal */
-    }
-    
-    /* Media query para ajustar el tamaño de fuente en pantallas pequeñas */
-    @media screen and (max-width: 600px) {
-      h1  {
-        font-size: 2rem; /* Tamaño de fuente ajustado */
-      }
-}
-/* Estilos para el tema de fondo */
-body {
-      background: url('') no-repeat center center fixed;
-      background-size: cover;
-    }
-
-    #imagen1 {
-  width: 100%;
-  max-height: 100vh; /* limita la altura máxima de la imagen al 80% de la altura de la ventana gráfica */
-  box-shadow: 2px 2px 5px #888888;
-}
-
-.subtitulo {
-  font-size: 24px;
-  color: #666;
-  text-align: left;
-  margin-left: 10px;
-  top: 90%; /* Desplazamiento hacia abajo */
-  position: fixed;
-}
-@media only screen and (max-width: 600px) {
-  .subtitulo {
-    font-size: 24px;
-  }
-
-.image-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 100%; 
-  margin-left: 0px;
-}
-
-.image-container a {
-  flex:  45%;
-  margin-top: 10px;
-  margin-left: 1px;
   
-}
 
-@media screen and (max-width: 768px) {
-  .image-container a {
-    flex: 0 0 100%;
-    margin-right: 0;
-  }
-}
-
+  </figure>
+  <figure class="card mb-3">
+    <img src="imagen/2.png" class="card-img-top" alt="Descripción de la imagen 2">
+    <figcaption class="card-body">
+      <p class="card-text"></p>
+    </figcaption>
 
 
-  </style>
-  </head>
-  <body>
-
-    <div class="image-container - image-container-1">
-      <img id="imagen1" src="imagenes portada/precio domo 1080p DS-2CE56D0T-IRPF.gif" alt="Descripción de la imagen" style="max-width: 150%; height: auto;">
-    </div>       
-
-    <h1><a href="#mi-seccion">10% de descuento adicional en su primera compra ¡con el registro!!  </a></h1>
-
-    
-    <div class="image-container - image-container-2"style="text-align: center";>
-      <a href="https://wa.me/3158859744/?text=necesito mas imformacion sobre los kits">
-      <img id="imagen2" src="imagenes portada/kits domo DS-2CE56D0T-IRPF.png" alt="Imagen 2" style="max-width: 99%;max-height: 600px; display: inline-block;margin-top: 10px;box-shadow: 2px 2px 5px #888888; margin: 20px;margin-left: 1px;">
-  </a>
-  <a href="index.html">
-    <img id="imagen3" src="imagenes portada/entrada bala 1080p DS-2CE16D0T-IRPF.png" alt="Imagen 3" style="max-width: 99%; display: inline-block;margin-top: 10px;box-shadow: 2px 2px 5px #888888; margin: 20px;margin-left: 3px;">
-  </a>
-    </div>
 
 
-    <div class="video-container">
-      <video controls>
-        <source src="imagenes portada/video domo 1080p  DS-2CE56D0T-IRPF.mp4" type="video/mp4">
+
+    <a class="btn btn-primary custom-btn font-italic" href="#formulario">
+      <span class="display-2">obtén la oferta!!</span>
+    </a>
+
+
+
+
+  </figure>
+  <figure class="card mb-3">
+    <img src="imagen/3.png" class="card-img-top" alt="Descripción de la imagen 3">
+    <figcaption class="card-body">
+      <p class="card-text"></p>
+    </figcaption>
+
+
+
+
+    <a class="btn btn-primary custom-btn font-italic" href="#formulario">
+      <span class="display-2">obtén la oferta!!</span>
+    </a>
+
+
+
+  </figure>
+  <!-- Contenedor de video -->
+  <figure class="card mb-3">
+    <figcaption class="card-body">
+      <h5 class="card-title">Video</h5>
+      <video controls class="card-video">
+        <source src="video/1.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
       </video>
-    </div>
-    
-    <section id="mi-seccion">
-    <div class="form-container">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScy1Yt8kMTZt_oQmd9X0agx5qafLIsZys7JUcFkQxjR5Sk9gg/viewform?embedded=true" width="640" height="780" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">Cargando…</iframe>
-    </div>
+    </figcaption>
 
-    <h1 class="subtitulo">¡cotiza con nuestro robot!</h1>
-     <!-- contenido de la sección -->
-     
-</section>
-  
-    <h1>para conocer más sobre nosotros, nuestros productos y servicios por favor comuníquese al WhatsApp o regístrese y nos contactáremos en la mayor brevedad</h1>
-    <script>
-window.embeddedChatbotConfig = {
-chatbotId: "zUjTQ-YhOzs8LlzraBzl9",
-domain: "www.chatbase.co"
-}
-</script>
-<script
-src="https://www.chatbase.co/embed.min.js"
-chatbotId="zUjTQ-YhOzs8LlzraBzl9"
-domain="www.chatbase.co"
-defer>
-</script>
-  
-  </body>
-  </html>
+
+
+    <a class="btn btn-primary custom-btn font-italic" href="#formulario">
+      <span class="display-2">obtén la oferta!!</span>
+    </a>
+
+  </figure>
+</div>
+
+<!-- Google Apps Script iframe -->
+<div id="formulario" class="container" style="margin-top: 50px;">
+  <!-- Aquí va el formulario -->
+  <iframe id="miFormulario" src="https://script.google.com/macros/s/AKfycbx7GiYQ0jFxVJ4ABs5VAqbiK2tsPuyWqQIf_sykgDK2gg6yaplhQi2qXBdEeOP4Vc10/exec" frameborder="0"></iframe>
+</div>
+
+<!-- Botón de WhatsApp estilizado con Bootstrap y estilos personalizados -->
+<a href="https://wa.me/1234567890" target="_blank" class="btn btn-success custom-whatsapp-btn">
+  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+</a>
+
+
+
+<!-- Integrar Bootstrap JS (opcional, solo si necesitas funcionalidades como modales, etc.) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Integrar JavaScript -->
+<script src="script.js"></script>
+
+<!-- Pie de página -->
+<footer class="mt-5">
+  <div class="container">
+    <p>© S24 seguridad electronica. Todos los derechos reservados.</p>
+    <p>Contacto: info@tuempresa.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
