@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cámara de Seguridad H6c</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">   
+<style>
+/* Reset general */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box; /* Asegura que el tamaño total incluya padding y border */
+}
+
+/* Estilos específicos para algunos elementos */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Arial', sans-serif;
+    margin: 0px; /* Ajusta el margen del body para dar más espacio alrededor de los elementos */
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Añadir estilos adicionales según sea necesario */
+
+.container {
+    max-width: 2000px; /* Ajusta el ancho máximo del contenedor principal */
+    margin: 0 auto; /* Centra el contenedor en el centro de la pantalla */
+    padding: 20px; /* Añade relleno al contenedor principal */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff; 
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    padding: 10px 0; /* Eliminamos el padding horizontal para que container se ocupe de eso */
+    height: 80px; /* Ajustar según la altura real del encabezado */
+    transition: top 0.3s ease-in-out; /* Transición para el movimiento del encabezado */
+}
+
+header.hidden {
+    top: -80px; /* Ajusta el valor según la altura de tu encabezado para ocultarlo fuera de la vista */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif; /* Usa la fuente Lato */
+    font-size: 28px; /* Aumenta el tamaño de la fuente */
+    padding: 10px; /* Añade un poco de relleno para un mejor espaciado */
+}
+
+/* Opcional: añade una transición para un efecto visual agradable al pasar el ratón */
+header nav ul li a:hover {
+    color: #007bff; /* Cambia el color al pasar el ratón */
+    transition: color 0.3s ease;
+}
+
+header nav ul li a.cta {
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Estilo bonito para el h1 */
+header h1 {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto blanco */
+    font-size: 46px; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    padding: 0px; /* Espaciado interno */
+    border-radius: 0px; /* Bordes redondeados */
+    text-align: center; /* Alineación centrada */
+    margin-top: -15px; /* Margen superior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un efecto de elevación */
+    width: 150%;
+}
+
+
+
+
+
+
+
+.features a.cta {
+    color: #140303;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Añade 20px de espacio en blanco debajo del enlace */
+    position: absolute;
+    margin-left: 50vw; /* Esto moverá el enlace hacia la derecha */
+    margin-top: -120px; /* Esto moverá el enlace hacia arriba */
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.cta.hidden {
+    display: none; /* Asegura que el enlace esté oculto inicialmente */
+}
+
+/* Estilos específicos para el botón específico */
+.specific-cta {
+    position: relative; /* Asegura que se pueda mover el enlace */
+    top: 530px;
+    margin-left: 61vw!important;
+    font-size: 3rem;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* Opcional: si también necesitas mantener las otras propiedades de .cta */
+.specific-cta.cta {
+    color: #140303;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: 50vw;
+    transition: margin-top 0.3s ease; /* Añade una transición para un efecto suave */
+}
+
+
+/* Estilos específicos para el botón específico */
+.boton-video {
+    position: absolute;
+    top: 160%; /* Ajusta según la posición vertical deseada */
+    left: 20%; /* Ajusta según la posición horizontal deseada */
+    transform: translate(-50%, -50%); /* Centra el botón */
+    color: #fff; /* Color del texto */
+    background-color: #007bff; /* Color de fondo */
+    padding: 10px 20px; /* Relleno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 3rem; /* Tamaño de fuente */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+    z-index: 999;
+    margin-left: 50vw;
+}
+
+.boton-video:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+    transform: translate(-50%, -50%) scale(1.05); /* Escala ligeramente al pasar el mouse */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.feature-item img {
+    max-width: 140%;
+    height: auto;
+}
+
+.feature-item {
+    margin-bottom: 30px;
+    margin-top: -18vh;
+    margin-left: 5vw;
+    padding-top: 0; /* Ajusta este valor según sea necesario */
+}
+
+.pt-5 {
+    padding-top: 3rem !important;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.features h2 {
+    background-color: darkblue;
+    color: #ffb804;
+    padding: 5px; /* Se mantuvo el padding en 5px */
+    border-radius: 2px;
+    display: inline-block; /* Se mantuvo como inline-block */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Se mantuvo el box-shadow */
+    position: relative; /* Se agrega la propiedad de posición */
+    top: 40px; /* Se mueve el h2 10px hacia abajo */
+    z-index: 999; /* Se coloca el h2 encima de los demás elementos */
+    margin-left: 50vw;
+    width: 25vw;
+    font-size: 8vh;
+}
+
+
+.features h3 {
+    color: goldenrod;
+    
+}
+
+.features h3.a1 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    left: -200px;
+    font-size: 2rem;
+}
+
+.features h3.a2 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: -100px;
+}
+
+.features h3.a3 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: 0;
+}
+
+.features h3.a4 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: 100px;
+}
+
+.features h3.a5 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: 200px;
+}
+
+.features h3.a6 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: 300px;
+}
+
+.features h3.a7 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: 400px;
+}
+
+
+.features h3.a8 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: 400px;
+}
+
+.features h3.a9 {
+    color: #ffb700;
+    position: relative;
+    top: -500px;
+    z-index: 999;
+    margin-left: 40vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 4rem;
+    left: 400px;
+    line-height: 1.5; /* Ajusta el interlineado para mejor legibilidad */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+
+.features h3.a10 {
+    color: hsl(43, 97%, 29%);
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: -350px;
+    z-index: 999;
+    margin-left: 65vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: 400px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.features h3.a11 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: 400px;
+}
+
+.features h3.a12 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 60px;
+    z-index: 999;
+    margin-left: 50vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 2rem;
+    left: 400px;
+}
+
+.features h3.a13 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 110px;
+    z-index: 999;
+    margin-left: 10vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 4rem;
+    left: 400px;
+}
+
+
+
+.features h3.a14 {
+    color: #ffb700;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    top: 110px;
+    z-index: 999;
+    margin-left: 10vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 0vw;
+    font-size: 5rem;
+    left: 400px;
+}
+
+
+
+
+.fondo-cuadrado {
+    position: absolute;
+    top: 190%; /* Posicionar verticalmente en el 60% */
+    left: 70%; /* Posicionar horizontalmente en el 70% */
+    transform: translate(-50%, -50%); /* Ajustar la posición desde el centro */
+    width: 40vw; /* Ancho del cuadrado */
+    height: 60vh; /* Alto del cuadrado */
+    background-color: #F00; /* Color de fondo (rojo en este caso) */
+    z-index: -1; /* Colocar el fondo detrás del contenido */
+    opacity: 0; /* Inicialmente invisible */
+    animation: showSquare 1s ease-in-out forwards; /* Aplicar la animación */
+}
+
+@keyframes showSquare {
+    0% {
+        opacity: 0; /* Comienza completamente invisible */
+    }
+    100% {
+        opacity: 1; /* Completamente visible al final */
+    }
+}
+
+
+
+
+/* Estilo para ajustar el tamaño y la posición de la imagen específica */
+.feature-item img.a1 {
+    width: 30%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    position: relative; /* Necesario para ajustar la posición */
+    left: 20px; /* Mueve la imagen 20px a la derecha */
+    top: 10px; /* Mueve la imagen 10px hacia arriba */
+    border: 2px solid #007bff; /* Añade un borde azul para distinguir */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efecto de elevación */
+}
+
+
+
+video-container {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding-top: 50%; /* Mantener la relación de aspecto 16:9 */
+    margin-top: -10rem; /* Ajustar este valor para mover el video hacia arriba */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500%;
+    margin-top: -13rem;
+}
+        
+
+.configuracion-imagen3 {
+    position: relative;
+    top: 400px; /* Ajusta el valor según lo que necesites */
+    left: 0px;  /* Ajusta el valor según lo que necesites */
+}
+
+
+.gif-boton-llamada {
+            position: absolute;
+            top: 230px; /* Ajusta la posición desde el borde superior */
+            left: 200px; /* Ajusta la posición desde el borde izquierdo */
+            width: 60%;
+            height: 60%;
+            margin-left: 25rem;
+        }
+
+
+     
+        
+        .a14 {
+    font-size: 14px; /* Tamaño de fuente */
+    font-family: Arial, sans-serif; /* Fuente */
+    color: #000; /* Color de texto */
+    font-weight: normal; /* Grosor de fuente */
+    margin-top: 50vh;
+    /* Otros estilos que desees aplicar */
+}
+
+
+
+.star-icon {
+    font-size: 24px; /* Tamaño del icono */
+    color: gold; /* Color del icono */
+    margin-top: 10rem;
+    /* Otros estilos que desees aplicar al div */
+}
+
+
+h3 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+        z-index: 999;
+    }
+
+    p {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.5;
+        word-wrap: break-word;
+        z-index: 999;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+
+
+
+    .content-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.text-wrapper {
+    margin-left: 20px; /* Ajusta el margen izquierdo según sea necesario */
+    flex-grow: 1; /* Esto permite que el texto ocupe todo el espacio restante */
+    word-wrap: break-word;
+}
+
+.feature-item.texto-1 > div p {
+  max-width: 50%; /* ajusta este valor según lo que necesites */
+  word-wrap: break-word; /* para dividir palabras largas en líneas */
+  z-index: 999;
+}
+
+
+.feature-item.texto-1 > div {
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+.feature-item.texto-1 img {
+  float: left;
+  margin-right: 20px;
+  max-width: 100%;
+  height: auto;
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .feature-item.texto-1 img {
+    float: none;
+    margin-right: 0;
+  }
+}
+
+
+
+
+
+
+</style>
+</head> 
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#features">Precio</a></li>
+                    <li><a href="#testimonials">Garantia</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="#cta" class="cta">Compra Ahora</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <h1>Envío gratis, ¡págala en la puerta de tu casa!</h1>
+        </div>
+    </header>    
+    
+    <section class="hero pt-5 mt-5">
+        <div class="container">
+        </div>
+    </section>
+    
+    <section id="features" class="features pt-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 pt--5 mt--5 feature-item">
+                    <img src="imagenes/3.gif" alt="Resolución 1080p">
+                    <h3 class="a9">deteccion de humanos + Sirena estroboscopica</h3>
+                    <h3 class="a10">TENDA CP3</h3>
+                    <p></p>
+                    <a href="#cta" class="cta hidden specific-cta">¡Obténla Hoy!</a>
+                </div>
+                <div class="col-md-6 pt-0 mt-0 feature-item">
+                    <div class="video-container">
+                        <iframe width="560" height="400" src="https://www.youtube.com/embed/tu_video_id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <h3 class="a11">11111111111111111111</h3>
+                        <h3 class="a12">222222222222222222</h3>
+                    </div>
+                </div>
+                <a href="#cta" class="boton-video">¡Obténla Hoy!</a> <!-- Nuevo botón con clase específica -->                
+                </div>                
+                <div class="col-md-12 pt-0 mt-0 feature-item texto-1">
+                    <div style="overflow: auto;">
+                        <div style="float: left; margin-right: 20px;">
+                            <img src="imagenes/44.gif" alt="Visión nocturna" class="gif-boton-llamada">
+                        </div>
+                        <div>
+                            <h3 class="a13">realice llamadas desde la camara</h3>
+                            <div class="star-icon">★</div>
+                            <h3>Beneficios de la llamada con un solo toque de la cámara Tenda CP3 Pro</h3>
+                            <p>La función de llamada con un solo toque de la cámara Tenda CP3 Pro ofrece varias ventajas, especialmente para personas mayores, niños y personas que necesitan asistencia inmediata:</p>
+                            <p><strong>Simplicidad y facilidad de uso</strong>:<br>
+                            Realizar una llamada de emergencia es tan simple como presionar un botón, lo que lo hace ideal para usuarios que pueden tener dificultades para usar un teléfono inteligente o navegar por menús complejos.</p>
+                            <p><strong>Comunicación rápida en caso de emergencias</strong>:<br>
+                            En situaciones que requieren atención urgente, la capacidad de realizar una llamada con un solo toque puede marcar la diferencia en cuanto a obtener ayuda rápidamente.</p>
+                            <p><strong>Tranquilidad para los cuidadores</strong>:<br>
+                            Brinda tranquilidad a los cuidadores que saben que sus seres queridos pueden comunicarse con ellos fácilmente en caso de necesidad, especialmente para personas que viven solas o que pueden ser propensas a caídas o accidentes.</p>
+                            <p><strong>Conexión con familiares y amigos</strong>:<br>
+                            La función de llamada con un solo toque también se puede usar para que los usuarios se mantengan conectados con familiares y amigos, especialmente para aquellos que pueden tener dificultades para usar un teléfono tradicional.</p>
+                            <p><strong>Accesibilidad</strong>:<br>
+                            El botón de llamada con un solo toque suele ser grande y fácil de ubicar en la cámara, lo que lo hace accesible para personas con movilidad reducida o problemas de visión.</p>
+                            <a href="#cta" class="boton-llamada">¡Obténla Hoy!</a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+
+                
+                
+                <div class="col-md-12 pt-5 mt-5 feature-item">
+                    <img src="path/to/image4.jpg" alt="Detección de movimiento">
+                    <h3>Detección de movimiento</h3>
+                    <p>Alertas automáticas al detectar movimiento.</p>
+                    <a href="#cta" class="cta">¡Obténla Hoy!</a>
+                </div>
+                <div class="col-md-12 pt-5 mt-5 feature-item">
+                    <img src="path/to/image5.jpg" alt="Seguimiento Automático">
+                    <h3>Seguimiento Automático</h3>
+                    <p>La cámara sigue inteligentemente los movimientos.</p>
+                    <a href="#cta" class="cta">¡Obténla Hoy!</a>
+                </div>
+                <div class="col-md-12 pt-5 mt-5 feature-item">
+                    <img src="path/to/image6.jpg" alt="Comunicación Bidireccional">
+                    <h3>Comunicación Bidireccional</h3>
+                    <p>Hable con sus seres queridos y disuada a extraños indeseables.</p>
+                    <a href="#cta" class="cta">¡Obténla Hoy!</a>
+                </div>
+                <div class="col-md-12 pt-5 mt-5 feature-item">
+                    <img src="path/to/image7.jpg" alt="Modo suspensión">
+                    <h3>Modo suspensión</h3>
+                    <p>Protección privada cuando no se necesita monitoreo.</p>
+                </div>
+                <div class="col-md-12 pt-5 mt-5 feature-item">
+                    <img src="path/to/image8.jpg" alt="Almacenamiento">
+                    <h3>Almacenamiento</h3>
+                    <p>Soporta tarjeta MicroSD (hasta 256 GB) y EZVIZ CloudPlay.</p>
+                    <div class="fondo-cuadrado"></div>
+                    <h2>tenda CP3</h2>
+                    <h3 class="a1">Resolución 1080p (2mpx)</h3>
+                    <h3 class="a2">Rotación hasta 360° grados</h3>
+                    <h3 class="a3">Identificación de humanos</h3>
+                    <h3 class="a4">Audio bidireccional</h3>
+                    <h3 class="a5">Sirena disuasiva personalizable</h3>
+                    <h3 class="a6">Conexión Wi-Fi estable</h3>
+                    <h3 class="a7">Fácil instalación</h3>
+                    <h3 class="a8">Fácil instalación</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="testimonials" class="testimonials pt-5 mt-5">
+        <div class="container">
+            <h2>Testimonios</h2>
+            <blockquote>
+                <p>"Esta cámara de seguridad ha cambiado nuestra vida. Nos sentimos mucho más seguros."</p>
+                <cite>– Juan Pérez, Madrid</cite>
+            </blockquote>
+            <blockquote>
+                <p>"La instalación fue muy sencilla y la calidad de la imagen es excelente."</p>
+                <cite>– María López, Barcelona</cite>
+            </blockquote>
+        </div>
+    </section>
+    
+    <section id="cta" class="cta pt-5 mt-5">
+        <div class="container">
+            <h2>Garantía de Satisfacción</h2>
+            <p>Compra ahora y disfruta de nuestra garantía de devolución de dinero por 30 días.</p>
+            <a href="#" class="cta">Compra Ahora</a>
+        </div>
+    </section>
+    
+    <footer class="pt-5 mt-5">
+        <div class="container">
+            <p>Contacta con nosotros: <a href="mailto:info@ezviz.com">info@ezviz.com</a></p>
+            <p>Síguenos en nuestras redes sociales:</p>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+            <p><a href="#">Política de privacidad</a> | <a href="#">Términos de servicio</a></p>
+        </div>
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Obtener todos los elementos h3
+    const h3Elements = document.querySelectorAll('.features h3');
+
+    // Función para animar cada elemento h3
+    function animateH3(index) {
+        const h3Element = h3Elements[index];
+        h3Element.style.opacity = 1; // Hacer que el elemento sea visible
+        h3Element.style.left = '0'; // Mover el elemento hacia la izquierda
+    }
+
+    // Iniciar la animación al cargar la página
+    window.addEventListener('load', () => {
+        // Introducir un retardo de 3 segundos antes de iniciar el bucle de animación
+        setTimeout(() => {
+            for (let i = 0; i < h3Elements.length; i++) {
+                setTimeout(() => animateH3(i), i * 200); // Retrasar cada animación en 1000ms
+            }
+        }, 200); // 3000 milisegundos = 3 segundos
+    });
+
+    window.addEventListener('load', () => {
+        const fondoCuadrado = document.querySelector('.fondo-cuadrado');
+
+        // Introducir un retardo de 3 segundos antes de agregar la clase 'animated'
+        setTimeout(() => {
+            fondoCuadrado.classList.add('animated'); // Agregar la clase 'animated' para desencadenar la animación
+        }, 500); // 500 milisegundos = 0.5 segundos
+    });
+
+    window.addEventListener('load', () => {
+        const ctaElement = document.querySelector('.features .cta');
+
+        setTimeout(() => {
+            ctaElement.classList.remove('hidden'); // Elimina la clase que oculta el enlace
+            ctaElement.classList.add('shake'); // Agrega la clase que activa la animación de estremecimiento
+        }, 2000); // 3 segundos de retraso antes de mostrar y activar la animación
+    });
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const h3Element = document.querySelector('.features h3.a9');
+    const text = h3Element.textContent;
+    const words = text.split(' ');
+
+    if (words.length > 3) {
+        h3Element.innerHTML = `${words.slice(0, 3).join(' ')}<br>${words.slice(3).join(' ')}`;
+    }
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scroll hacia abajo -> ocultar encabezado
+            header.classList.add('hidden');
+        } else {
+            // Scroll hacia arriba -> mostrar encabezado
+            header.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+});
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
